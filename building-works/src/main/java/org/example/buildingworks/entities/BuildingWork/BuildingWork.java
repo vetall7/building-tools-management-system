@@ -5,17 +5,17 @@ import lombok.*;
 
 import java.io.Serializable;
 
-@Getter
-@Setter
-@AllArgsConstructor
-@NoArgsConstructor
-@Builder
 @EqualsAndHashCode
+@ToString
+@Setter
+@Getter
+@NoArgsConstructor
+@AllArgsConstructor(access = AccessLevel.PRIVATE)
+@Builder
 @Entity
 @Table(name = "building_works")
 public class BuildingWork implements Serializable {
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
     @Column(nullable = false)
@@ -27,6 +27,9 @@ public class BuildingWork implements Serializable {
     private String location;
 
     private String status;
+
+    @Version
+    private Long version = 0L;
 }
 
 

@@ -11,3 +11,6 @@ Content-Type: application/json
   "location": "Building Works 1 Location",
   "status": "IN_PROGRESS"
 }
+
+### Delete Building Works
+DELETE http://localhost:8080/api/building-works/100

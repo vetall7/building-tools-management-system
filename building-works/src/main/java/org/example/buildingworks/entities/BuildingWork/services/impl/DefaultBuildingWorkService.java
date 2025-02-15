@@ -32,7 +32,6 @@ public class DefaultBuildingWorkService implements BuildingWorkService {
 
     @Override
     public void save(BuildingWork buildingWork) {
-        System.out.println("Building work: " + buildingWork.getId());
         buildingWorkRepository.save(buildingWork);
     }
 
