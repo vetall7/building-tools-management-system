@@ -5,17 +5,16 @@ import org.example.buildingworks.entities.BuildingWork.dto.GetBuildingWorksRespo
 import org.example.buildingworks.entities.BuildingWork.dto.PatchBuildingWorkRequest;
 import org.example.buildingworks.entities.BuildingWork.dto.PutBuildingWorkRequest;
 import org.springframework.http.HttpStatus;
-import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 
 
 public interface BuildingWorkController {
-    @GetMapping("/api/buildingworks")
+    @GetMapping("/api/building-works")
     @ResponseStatus(HttpStatus.OK)
     @ResponseBody
     GetBuildingWorksResponse getBuildingWorks();
 
-    @GetMapping("/api/buildingworks/{buildingWorkId}")
+    @GetMapping("/api/building-works/{buildingWorkId}")
     @ResponseStatus(HttpStatus.OK)
     @ResponseBody
     GetBuildingWorkResponse getBuildingWork(
@@ -23,7 +22,7 @@ public interface BuildingWorkController {
             Long buildingWorkId
     );
 
-    @PutMapping("/api/buildingworks/{buildingWorkId}")
+    @PutMapping("/api/building-works/{buildingWorkId}")
     @ResponseStatus(HttpStatus.CREATED)
     void createBuildingWork(
             @PathVariable
@@ -33,17 +32,17 @@ public interface BuildingWorkController {
             putBuildingWorkRequest
     );
 
-    @PatchMapping("/api/buildingworks/{buildingWorkId}")
-    @ResponseStatus(HttpStatus.NO_CONTENT)
-    void updateBuildingWork(
-            @PathVariable
-            Long buildingWorkId,
-            @RequestBody
-            PatchBuildingWorkRequest
-            fieldsToUpdate
-    );
+//    @PatchMapping("/api/building-works/{buildingWorkId}")
+//    @ResponseStatus(HttpStatus.NO_CONTENT)
+//    void updateBuildingWork(
+//            @PathVariable
+//            Long buildingWorkId,
+//            @RequestBody
+//            PatchBuildingWorkRequest
+//            fieldsToUpdate
+//    );
 
-    @DeleteMapping("/api/buildingworks/{buildingWorkId}")
+    @DeleteMapping("/api/building-works/{buildingWorkId}")
     @ResponseStatus(HttpStatus.NO_CONTENT)
     void deleteBuildingWork(
             @PathVariable

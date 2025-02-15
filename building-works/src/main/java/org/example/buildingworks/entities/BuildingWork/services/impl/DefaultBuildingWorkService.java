@@ -8,7 +8,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
-import java.util.Optional;
 
 @Service
 public class DefaultBuildingWorkService implements BuildingWorkService {
@@ -32,8 +31,9 @@ public class DefaultBuildingWorkService implements BuildingWorkService {
     }
 
     @Override
-    public BuildingWork save(BuildingWork buildingWork) {
-        return buildingWorkRepository.save(buildingWork);
+    public void save(BuildingWork buildingWork) {
+        System.out.println("Building work: " + buildingWork.getId());
+        buildingWorkRepository.save(buildingWork);
     }
 
     @Override

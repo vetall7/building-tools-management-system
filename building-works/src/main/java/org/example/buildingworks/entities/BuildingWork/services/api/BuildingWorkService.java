@@ -8,7 +8,7 @@ import java.util.Optional;
 public interface BuildingWorkService {
     BuildingWork findById(Long id);
 
-    BuildingWork save(BuildingWork buildingWork);
+    void save(BuildingWork buildingWork);
 
     void deleteById(Long id);
 

@@ -1,0 +1,13 @@
+### Get Building Works
+GET http://localhost:8080/api/building-works
+
+### Create Building Works
+PUT http://localhost:8080/api/building-works/100
+Content-Type: application/json
+
+{
+  "name": "Building Works 1",
+  "description": "Building Works 1 Description",
+  "location": "Building Works 1 Location",
+  "status": "IN_PROGRESS"
+}
