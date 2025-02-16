@@ -1,0 +1,18 @@
+### Add Building work
+PUT http://localhost:8080/api/building-works/1
+
+### Add Tool
+PUT http://localhost:8080/api/tools/1
+Content-Type: application/json
+
+{
+    "name": "Hammer",
+    "description": "lalalala",
+    "imageURL": "https://www.google.com",
+    "toolStatus": "AVAILABLE",
+    "buildingWorkId": 1
+}
+
+### Get All Tools
+GET http://localhost:8080/api/tools
+
