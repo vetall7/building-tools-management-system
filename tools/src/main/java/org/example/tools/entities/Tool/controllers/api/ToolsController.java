@@ -18,6 +18,7 @@ public interface ToolsController {
     @ResponseStatus(HttpStatus.OK)
     @ResponseBody
     GetToolResponse getTool(
+            @PathVariable
             UUID toolId
     );
 
@@ -25,6 +26,7 @@ public interface ToolsController {
     @ResponseStatus(HttpStatus.CREATED)
     @ResponseBody
     void createTool(
+            @PathVariable
             UUID toolId,
             @RequestBody
             PutToolRequest putToolRequest
@@ -33,6 +35,7 @@ public interface ToolsController {
     @DeleteMapping("/api/tools/{toolId}")
     @ResponseStatus(HttpStatus.NO_CONTENT)
     void deleteTool(
+            @PathVariable
             UUID toolId
     );
 }
