@@ -2,13 +2,15 @@ package org.example.buildingworks.entities.BuildingWork.dto;
 
 import lombok.*;
 
+import java.util.UUID;
+
 @Getter
 @Setter
 @Builder
 @ToString
 @EqualsAndHashCode
 public class GetBuildingWorkResponse {
-    private Long id;
+    private UUID id;
 
     private String name;
 

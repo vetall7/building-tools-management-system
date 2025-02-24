@@ -9,7 +9,7 @@ import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import java.util.Optional;
+import java.util.UUID;
 
 
 @Service
@@ -32,14 +32,14 @@ public class DefaultBuildingWorkService implements BuildingWorkService {
     }
 
     @Override
-    public BuildingWork findById(Long id) {
+    public BuildingWork findById(UUID id) {
         return buildingWorkRepository.findById(id)
                 .orElseThrow(() -> new EntityNotFoundException("Building work with id " + id + " not found"));
     }
 
 
     @Override
-    public void deleteById(Long id) {
+    public void deleteById(UUID id) {
         if (this.findById(id) != null) {
             buildingWorkRepository.deleteById(id);
         } else {

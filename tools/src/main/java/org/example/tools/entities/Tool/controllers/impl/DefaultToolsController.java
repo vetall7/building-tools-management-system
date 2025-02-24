@@ -14,6 +14,8 @@ import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.server.ResponseStatusException;
 
+import java.util.UUID;
+
 @RestController
 public class DefaultToolsController implements ToolsController {
     private final ToolsService toolsService;
@@ -38,7 +40,7 @@ public class DefaultToolsController implements ToolsController {
     }
 
     @Override
-    public GetToolResponse getTool(Long toolId) {
+    public GetToolResponse getTool(UUID toolId) {
         try {
             return toolToResponseFunction.apply(toolsService.findById(toolId));
         } catch (EntityNotFoundException e) {
@@ -49,12 +51,17 @@ public class DefaultToolsController implements ToolsController {
     }
 
     @Override
-    public void createTool(Long toolId, PutToolRequest putToolRequest) {
-        toolsService.save(putToolFunction.apply(putToolRequest, toolId));
+    public void createTool(UUID toolId, PutToolRequest putToolRequest) {
+        System.out.println(putToolRequest.toString());
+        try {
+            toolsService.save(putToolFunction.apply(putToolRequest, toolId));
+        } catch (EntityNotFoundException e) {
+            throw new ResponseStatusException(HttpStatus.NOT_FOUND);
+        }
     }
 
     @Override
-    public void deleteTool(Long toolId) {
+    public void deleteTool(UUID toolId) {
         try {
             toolsService.deleteById(toolId);
         } catch (EntityNotFoundException e) {

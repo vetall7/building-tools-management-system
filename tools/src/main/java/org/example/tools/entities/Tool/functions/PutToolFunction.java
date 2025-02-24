@@ -6,12 +6,13 @@ import org.example.tools.entities.Tool.ToolStatus;
 import org.example.tools.entities.Tool.dto.PutToolRequest;
 import org.springframework.stereotype.Component;
 
+import java.util.UUID;
 import java.util.function.BiFunction;
 
 @Component
-public class PutToolFunction implements BiFunction<PutToolRequest, Long, Tool> {
+public class PutToolFunction implements BiFunction<PutToolRequest, UUID, Tool> {
     @Override
-    public Tool apply(PutToolRequest putToolRequest, Long id) {
+    public Tool apply(PutToolRequest putToolRequest, UUID id) {
         return Tool.builder()
                 .id(id)
                 .name(putToolRequest.getName())

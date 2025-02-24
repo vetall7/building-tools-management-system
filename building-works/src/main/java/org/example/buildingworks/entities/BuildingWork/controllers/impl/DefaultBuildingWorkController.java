@@ -14,6 +14,8 @@ import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.server.ResponseStatusException;
 
+import java.util.UUID;
+
 @RestController
 public class DefaultBuildingWorkController implements BuildingWorkController {
     private final BuildingWorkService buildingWorkService;
@@ -41,12 +43,12 @@ public class DefaultBuildingWorkController implements BuildingWorkController {
     }
 
     @Override
-    public void createBuildingWork(Long buildingWorkId, PutBuildingWorkRequest putBuildingWorkRequest) {
+    public void createBuildingWork(UUID buildingWorkId, PutBuildingWorkRequest putBuildingWorkRequest) {
         buildingWorkService.save(putBuildingWorkRequestFunction.apply(putBuildingWorkRequest, buildingWorkId));
     }
 
     @Override
-    public void deleteBuildingWork(Long buildingWorkId) {
+    public void deleteBuildingWork(UUID buildingWorkId) {
         try {
             buildingWorkService.deleteById(buildingWorkId);
         }
@@ -59,7 +61,7 @@ public class DefaultBuildingWorkController implements BuildingWorkController {
     }
 
     @Override
-    public GetBuildingWorkResponse getBuildingWork(Long buildingWorkId) {
+    public GetBuildingWorkResponse getBuildingWork(UUID buildingWorkId) {
         return buildingWorkToResponseFunction.apply(buildingWorkService.findById(buildingWorkId));
     }
 }

@@ -3,6 +3,7 @@ package org.example.buildingworks.entities.BuildingWork.dto;
 import lombok.*;
 
 import java.util.List;
+import java.util.UUID;
 
 @Getter
 @Setter
@@ -17,7 +18,7 @@ public class GetBuildingWorksResponse {
     @ToString
     @EqualsAndHashCode
     public static class BuildingWork {
-        private Long id;
+        private UUID id;
 
         private String name;
     }

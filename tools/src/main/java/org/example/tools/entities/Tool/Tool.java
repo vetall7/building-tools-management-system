@@ -5,6 +5,7 @@ import lombok.*;
 import org.example.tools.entities.BuildingWork.BuildingWork;
 
 import java.io.Serializable;
+import java.util.UUID;
 
 @Getter
 @Setter
@@ -17,7 +18,7 @@ import java.io.Serializable;
 @Table(name = "tools")
 public class Tool implements Serializable {
     @Id
-    private Long id;
+    private UUID id;
 
     @Column(nullable = false)
     private String name;

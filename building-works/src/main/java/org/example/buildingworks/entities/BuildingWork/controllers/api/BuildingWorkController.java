@@ -7,6 +7,8 @@ import org.example.buildingworks.entities.BuildingWork.dto.PutBuildingWorkReques
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.UUID;
+
 
 public interface BuildingWorkController {
     @GetMapping("/api/building-works")
@@ -19,14 +21,14 @@ public interface BuildingWorkController {
     @ResponseBody
     GetBuildingWorkResponse getBuildingWork(
             @PathVariable
-            Long buildingWorkId
+            UUID buildingWorkId
     );
 
     @PutMapping("/api/building-works/{buildingWorkId}")
     @ResponseStatus(HttpStatus.CREATED)
     void createBuildingWork(
             @PathVariable
-            Long buildingWorkId,
+            UUID buildingWorkId,
             @RequestBody
             PutBuildingWorkRequest
             putBuildingWorkRequest
@@ -36,7 +38,7 @@ public interface BuildingWorkController {
 //    @ResponseStatus(HttpStatus.NO_CONTENT)
 //    void updateBuildingWork(
 //            @PathVariable
-//            Long buildingWorkId,
+//            UUID buildingWorkId,
 //            @RequestBody
 //            PatchBuildingWorkRequest
 //            fieldsToUpdate
@@ -46,6 +48,6 @@ public interface BuildingWorkController {
     @ResponseStatus(HttpStatus.NO_CONTENT)
     void deleteBuildingWork(
             @PathVariable
-            Long buildingWorkId
+            UUID buildingWorkId
     );
 }

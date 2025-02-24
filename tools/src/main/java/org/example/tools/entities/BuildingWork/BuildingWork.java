@@ -6,6 +6,7 @@ import org.example.tools.entities.Tool.Tool;
 
 import java.io.Serializable;
 import java.util.List;
+import java.util.UUID;
 
 @EqualsAndHashCode
 @ToString
@@ -18,7 +19,7 @@ import java.util.List;
 @Table(name = "building_works")
 public class BuildingWork implements Serializable {
     @Id
-    private Long id;
+    private UUID id;
 
     @ToString.Exclude
     @EqualsAndHashCode.Exclude

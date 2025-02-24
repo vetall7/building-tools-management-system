@@ -4,6 +4,7 @@ import jakarta.persistence.*;
 import lombok.*;
 
 import java.io.Serializable;
+import java.util.UUID;
 
 @EqualsAndHashCode
 @ToString
@@ -16,7 +17,7 @@ import java.io.Serializable;
 @Table(name = "building_works")
 public class BuildingWork implements Serializable {
     @Id
-    private Long id;
+    private UUID id;
 
     @Column(nullable = false)
     private String name;
@@ -29,7 +30,7 @@ public class BuildingWork implements Serializable {
     private String status;
 
     @Version
-    private Long version = 0L;
+    private UUID version = UUID.randomUUID();
 }
 
 

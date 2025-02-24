@@ -3,6 +3,7 @@ package org.example.tools.entities.Tool.dto;
 import lombok.*;
 
 import java.util.List;
+import java.util.UUID;
 
 @Getter
 @Setter
@@ -16,7 +17,7 @@ public class GetToolsResponse {
     @ToString
     @EqualsAndHashCode
     public static class Tool {
-        private Long id;
+        private UUID id;
 
         private String name;
     }

@@ -6,6 +6,8 @@ import org.example.tools.entities.Tool.dto.PutToolRequest;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.UUID;
+
 public interface ToolsController {
     @GetMapping("/api/tools")
     @ResponseStatus(HttpStatus.OK)
@@ -16,19 +18,21 @@ public interface ToolsController {
     @ResponseStatus(HttpStatus.OK)
     @ResponseBody
     GetToolResponse getTool(
-            Long toolId
+            UUID toolId
     );
 
     @PutMapping("/api/tools/{toolId}")
     @ResponseStatus(HttpStatus.CREATED)
+    @ResponseBody
     void createTool(
-            Long toolId,
+            UUID toolId,
+            @RequestBody
             PutToolRequest putToolRequest
     );
 
     @DeleteMapping("/api/tools/{toolId}")
     @ResponseStatus(HttpStatus.NO_CONTENT)
     void deleteTool(
-            Long toolId
+            UUID toolId
     );
 }

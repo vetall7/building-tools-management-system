@@ -2,6 +2,8 @@ package org.example.tools.entities.Tool.dto;
 
 import lombok.*;
 
+import java.util.UUID;
+
 @Getter
 @Setter
 @Builder
@@ -16,5 +18,5 @@ public class PutToolRequest {
 
     private String toolStatus;
 
-    private Long buildingWorkId;
+    private UUID buildingWorkId;
 }
