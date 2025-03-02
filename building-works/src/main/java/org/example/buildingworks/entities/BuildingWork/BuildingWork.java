@@ -28,9 +28,6 @@ public class BuildingWork implements Serializable {
     private String location;
 
     private String status;
-
-    @Version
-    private UUID version = UUID.randomUUID();
 }
 
 

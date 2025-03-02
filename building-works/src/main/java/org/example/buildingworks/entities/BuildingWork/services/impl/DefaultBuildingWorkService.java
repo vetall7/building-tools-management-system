@@ -3,6 +3,7 @@ package org.example.buildingworks.entities.BuildingWork.services.impl;
 import com.fasterxml.jackson.databind.util.BeanUtil;
 import jakarta.persistence.EntityNotFoundException;
 import org.example.buildingworks.entities.BuildingWork.BuildingWork;
+import org.example.buildingworks.entities.BuildingWork.event.repository.api.BuildingWorksEventRepository;
 import org.example.buildingworks.entities.BuildingWork.repositories.api.BuildingWorkRepository;
 import org.example.buildingworks.entities.BuildingWork.services.api.BuildingWorkService;
 import org.springframework.beans.BeanUtils;
@@ -17,9 +18,12 @@ public class DefaultBuildingWorkService implements BuildingWorkService {
 
     private final BuildingWorkRepository buildingWorkRepository;
 
+    private final BuildingWorksEventRepository buildingWorksEventRepository;
+
     @Autowired
-    public DefaultBuildingWorkService(BuildingWorkRepository buildingWorkRepository) {
+    public DefaultBuildingWorkService(BuildingWorkRepository buildingWorkRepository, BuildingWorksEventRepository buildingWorksEventRepository) {
         this.buildingWorkRepository = buildingWorkRepository;
+        this.buildingWorksEventRepository = buildingWorksEventRepository;
     }
 
     @Override
@@ -41,7 +45,10 @@ public class DefaultBuildingWorkService implements BuildingWorkService {
                             BeanUtils.copyProperties(buildingWork, existingBuildingWork);
                             buildingWorkRepository.save(existingBuildingWork);
                         },
-                        () -> buildingWorkRepository.save(buildingWork)
+                        () -> {
+                            buildingWorkRepository.save(buildingWork);
+                            buildingWorksEventRepository.save(buildingWork.getId());
+                        }
                 );
     }
 
