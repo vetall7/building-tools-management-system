@@ -13,4 +13,6 @@ public interface ToolsService {
     Tool findById(UUID id);
 
     List<Tool> findAll();
+
+    List<Tool> findAllByBuildingWorkId(UUID buildingWorkId);
 }

@@ -38,4 +38,12 @@ public interface ToolsController {
             @PathVariable
             UUID toolId
     );
+
+    @GetMapping("/api/building-works/{buildingWorkId}/tools")
+    @ResponseStatus(HttpStatus.OK)
+    @ResponseBody
+    GetToolsResponse getTools(
+            @PathVariable
+            UUID buildingWorkId
+    );
 }

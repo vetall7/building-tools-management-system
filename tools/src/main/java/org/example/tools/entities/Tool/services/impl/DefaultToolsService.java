@@ -63,4 +63,12 @@ public class DefaultToolsService implements ToolsService {
                         }
                 );
     }
+
+    @Override
+    public List<Tool> findAllByBuildingWorkId(UUID buildingWorkId) {
+        this.buildingWorkRepository.findById(buildingWorkId)
+                .orElseThrow(() -> new EntityNotFoundException("BuildingWork with id " + buildingWorkId + " not found"));
+
+        return toolsRepository.findAllByBuildingWorkId(buildingWorkId);
+    }
 }

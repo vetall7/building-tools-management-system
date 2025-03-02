@@ -16,3 +16,5 @@ Content-Type: application/json
 ### Get All Tools
 GET http://localhost:8080/api/tools
 
+### Get All Tools by Building Work Id
+GET http://localhost:8080/api/building-works/501174f5-608c-4c2f-bb36-c248b7abf23e/tools

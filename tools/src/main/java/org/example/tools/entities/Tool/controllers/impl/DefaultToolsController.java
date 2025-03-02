@@ -70,4 +70,15 @@ public class DefaultToolsController implements ToolsController {
             throw new ResponseStatusException(HttpStatus.INTERNAL_SERVER_ERROR);
         }
     }
+
+    @Override
+    public GetToolsResponse getTools(UUID buildingWorkId) {
+        try {
+            return toolsToResponseFunction.apply(toolsService.findAllByBuildingWorkId(buildingWorkId));
+        } catch (EntityNotFoundException e) {
+            throw new ResponseStatusException(HttpStatus.NOT_FOUND);
+        } catch (Exception e) {
+            throw new ResponseStatusException(HttpStatus.INTERNAL_SERVER_ERROR);
+        }
+    }
 }
