@@ -1,0 +1,20 @@
+### Add Building work
+PUT http://localhost:8080/api/building-works/501174f5-608c-4c2f-bb36-c248b7abf23e
+
+### Add Tool
+PUT http://localhost:8080/api/tools/501174f5-608c-4c2f-bb36-c248b7abf23e
+Content-Type: application/json
+
+{
+    "name": "Hammer",
+    "description": "lalalfala",
+    "imageURL": "https://www.google.com",
+    "toolStatus": "AVAILABLE",
+    "buildingWorkId": "501174f5-608c-4c2f-bb36-c248b7abf23e"
+}
+
+### Get All Tools
+GET http://localhost:8080/api/tools
+
+### Get All Tools by Building Work Id
+GET http://localhost:8080/api/building-works/501174f5-608c-4c2f-bb36-c248b7abf23e/tools
