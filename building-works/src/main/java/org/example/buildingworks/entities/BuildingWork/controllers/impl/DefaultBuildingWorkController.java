@@ -4,6 +4,7 @@ import jakarta.persistence.EntityNotFoundException;
 import org.example.buildingworks.entities.BuildingWork.controllers.api.BuildingWorkController;
 import org.example.buildingworks.entities.BuildingWork.dto.GetBuildingWorkResponse;
 import org.example.buildingworks.entities.BuildingWork.dto.GetBuildingWorksResponse;
+import org.example.buildingworks.entities.BuildingWork.dto.LocationDTO;
 import org.example.buildingworks.entities.BuildingWork.dto.PutBuildingWorkRequest;
 import org.example.buildingworks.entities.BuildingWork.functions.BuildingWorkToResponseFunction;
 import org.example.buildingworks.entities.BuildingWork.functions.BuildingWorksToResponseFunction;
@@ -14,6 +15,7 @@ import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.server.ResponseStatusException;
 
+import java.util.List;
 import java.util.UUID;
 
 @RestController
@@ -44,6 +46,7 @@ public class DefaultBuildingWorkController implements BuildingWorkController {
 
     @Override
     public void createBuildingWork(UUID buildingWorkId, PutBuildingWorkRequest putBuildingWorkRequest) {
+        System.out.println(putBuildingWorkRequest.toString());
         buildingWorkService.save(putBuildingWorkRequestFunction.apply(putBuildingWorkRequest, buildingWorkId));
     }
 
@@ -63,5 +66,10 @@ public class DefaultBuildingWorkController implements BuildingWorkController {
     @Override
     public GetBuildingWorkResponse getBuildingWork(UUID buildingWorkId) {
         return buildingWorkToResponseFunction.apply(buildingWorkService.findById(buildingWorkId));
+    }
+
+    @Override
+    public List<LocationDTO> getBuildingWorksLocations() {
+        return this.buildingWorkService.findAllLatitudesAndLongitudes();
     }
 }

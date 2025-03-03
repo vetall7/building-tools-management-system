@@ -12,7 +12,9 @@ public class PutBuildingWorkRequest {
 
     private String description;
 
-    private String location;
+    private Double latitude;
+
+    private Double longitude;
 
     private String status;
 }

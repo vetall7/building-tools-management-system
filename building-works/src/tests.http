@@ -2,15 +2,19 @@
 GET http://localhost:8083/api/building-works
 
 ### Create Building Works
-PUT http://localhost:8083/api/building-works/501174f5-608c-4c2f-bb36-c248b7abf23e
+PUT http://localhost:8083/api/building-works/601174f6-608c-4c2f-bb36-c248b7abf23e
 Content-Type: application/json
 
 {
   "name": "Building Works 2",
   "description": "Building Works 1 Description",
-  "location": "Building Works 1 Location",
+  "latitude": 51.5074,
+  "longitude": 0.1278,
   "status": "IN_PROGRESS"
 }
 
 ### Delete Building Works
 DELETE http://localhost:8083/api/building-works/501174f5-608c-4c2f-bb36-c248b7abf23e
+
+### Get Locations
+GET http://localhost:8083/api/building-works/locations

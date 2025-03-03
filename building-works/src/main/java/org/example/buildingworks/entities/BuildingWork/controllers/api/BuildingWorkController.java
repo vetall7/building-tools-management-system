@@ -1,12 +1,11 @@
 package org.example.buildingworks.entities.BuildingWork.controllers.api;
 
-import org.example.buildingworks.entities.BuildingWork.dto.GetBuildingWorkResponse;
-import org.example.buildingworks.entities.BuildingWork.dto.GetBuildingWorksResponse;
-import org.example.buildingworks.entities.BuildingWork.dto.PatchBuildingWorkRequest;
-import org.example.buildingworks.entities.BuildingWork.dto.PutBuildingWorkRequest;
+import org.example.buildingworks.entities.BuildingWork.dto.*;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
+import org.example.buildingworks.entities.BuildingWork.Location;
 
+import java.util.List;
 import java.util.UUID;
 
 
@@ -50,4 +49,9 @@ public interface BuildingWorkController {
             @PathVariable
             UUID buildingWorkId
     );
+
+    @GetMapping("/api/building-works/locations")
+    @ResponseStatus(HttpStatus.OK)
+    @ResponseBody
+    List<LocationDTO> getBuildingWorksLocations();
 }

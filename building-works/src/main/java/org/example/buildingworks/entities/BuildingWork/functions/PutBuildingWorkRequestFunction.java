@@ -1,6 +1,7 @@
 package org.example.buildingworks.entities.BuildingWork.functions;
 
 import org.example.buildingworks.entities.BuildingWork.BuildingWork;
+import org.example.buildingworks.entities.BuildingWork.Location;
 import org.example.buildingworks.entities.BuildingWork.dto.PutBuildingWorkRequest;
 import org.springframework.stereotype.Component;
 
@@ -15,7 +16,7 @@ public class PutBuildingWorkRequestFunction implements BiFunction<PutBuildingWor
                 .id(id)
                 .name(putBuildingWorkRequest.getName())
                 .description(putBuildingWorkRequest.getDescription())
-                .location(putBuildingWorkRequest.getLocation())
+                .location(Location.builder().latitude(putBuildingWorkRequest.getLatitude()).longitude(putBuildingWorkRequest.getLongitude()).build())
                 .status(putBuildingWorkRequest.getStatus())
                 .build();
     }

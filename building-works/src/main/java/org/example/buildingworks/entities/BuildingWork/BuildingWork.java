@@ -25,7 +25,8 @@ public class BuildingWork implements Serializable {
     private String description;
 
     @Column(nullable = false)
-    private String location;
+    @Embedded
+    private Location location;
 
     private String status;
 }

@@ -3,6 +3,8 @@ package org.example.buildingworks.entities.BuildingWork.services.impl;
 import com.fasterxml.jackson.databind.util.BeanUtil;
 import jakarta.persistence.EntityNotFoundException;
 import org.example.buildingworks.entities.BuildingWork.BuildingWork;
+import org.example.buildingworks.entities.BuildingWork.Location;
+import org.example.buildingworks.entities.BuildingWork.dto.LocationDTO;
 import org.example.buildingworks.entities.BuildingWork.event.repository.api.BuildingWorksEventRepository;
 import org.example.buildingworks.entities.BuildingWork.repositories.api.BuildingWorkRepository;
 import org.example.buildingworks.entities.BuildingWork.services.api.BuildingWorkService;
@@ -64,5 +66,10 @@ public class DefaultBuildingWorkService implements BuildingWorkService {
     @Override
     public void update(BuildingWork buildingWork) {
         buildingWorkRepository.save(buildingWork);
+    }
+
+    @Override
+    public List<LocationDTO> findAllLatitudesAndLongitudes() {
+        return buildingWorkRepository.findAllLatitudesAndLongitudes();
     }
 }

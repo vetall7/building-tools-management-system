@@ -14,7 +14,8 @@ public class BuildingWorkToResponseFunction implements Function<BuildingWork, Ge
                 .id(buildingWork.getId())
                 .name(buildingWork.getName())
                 .description(buildingWork.getDescription())
-                .location(buildingWork.getLocation())
+                .latitude(buildingWork.getLocation().getLatitude())
+                .longitude(buildingWork.getLocation().getLongitude())
                 .status(buildingWork.getStatus())
                 .build();
     }

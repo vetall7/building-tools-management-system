@@ -2,6 +2,7 @@ package org.example.buildingworks.entities.BuildingWork.dto;
 
 import lombok.*;
 
+import java.util.List;
 import java.util.UUID;
 
 @Getter
@@ -9,16 +10,12 @@ import java.util.UUID;
 @Builder
 @ToString
 @EqualsAndHashCode
-public class GetBuildingWorkResponse {
+@AllArgsConstructor
+@NoArgsConstructor
+public class LocationDTO {
     private UUID id;
-
-    private String name;
-
-    private String description;
 
     private Double latitude;
 
     private Double longitude;
-
-    private String status;
 }
