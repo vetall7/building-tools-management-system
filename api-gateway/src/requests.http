@@ -1,0 +1,28 @@
+### Get tools
+GET http://localhost:8085/api/tools
+
+### Put tool
+PUT http://localhost:8085/api/tools/501174f5-608c-4c2f-bb36-c248b7abf23e
+Content-Type: application/json
+
+{
+    "name": "Hammer",
+    "description": "lalalfala",
+    "imageURL": "https://www.google.com",
+    "toolStatus": "AVAILABLE",
+    "buildingWorkId": "501174f5-608c-4c2f-bb36-c248b7abf23e"
+}
+
+### PUT building work
+PUT http://localhost:8085/api/building-works/501174f5-608c-4c2f-bb36-c248b7abf23e
+Content-Type: application/json
+
+{
+  "name": "Building Works 2",
+  "description": "Building Works 1 Description",
+  "location": "Building Works 1 Location",
+  "status": "IN_PROGRESS"
+}
+
+### Get building works
+GET http://localhost:8085/api/building-works/501174f5-608c-4c2f-bb36-c248b7abf23e/tools
